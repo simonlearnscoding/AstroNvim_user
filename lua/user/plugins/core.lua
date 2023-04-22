@@ -1,7 +1,7 @@
 return {
   -- disable some stuff
   { "bufdelete.nvim", enabled = true },
-  { "better-escape.nvim", enabled = false },
+  { "better-escape.nvim", enabled = true },
   { "nvim-autopairs", enabled = false },
   { "mason.nvim", opts = { PATH = "append" } }, -- Mason binaries will have the lowest priority
   { "theHamsta/nvim-dap-virtual-text", opts = {} },

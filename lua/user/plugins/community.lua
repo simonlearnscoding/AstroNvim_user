@@ -9,7 +9,7 @@ return {
     opts = {
       integrations = {
         sandwich = false,
-        noice = true,
+        noice = false,
         mini = true,
         leap = true,
         markdown = true,
@@ -57,10 +57,10 @@ return {
   { import = "astrocommunity.colorscheme.everforest", enabled = true },
   { import = "astrocommunity.colorscheme.gruvbox", enabled = true },
   { import = "astrocommunity.colorscheme.nightfox", enabled = false },
-  { import = "astrocommunity.colorscheme.kanagawa", enabled = false },
+  { import = "astrocommunity.colorscheme.kanagawa", enabled = true },
   { import = "astrocommunity.colorscheme.oxocarbon", enabled = false },
   { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
-  { import = "astrocommunity.colorscheme.onigiri", enabled = false },
+  { import = "astrocommunity.colorscheme.onigiri", enabled = true },
   { import = "astrocommunity.colorscheme.tokyonight", enabled = true },
   { "tokyonight.nvim", opts = { style = "night", light_style = "storm" } },
   { import = "astrocommunity.colorscheme.mini-base16", enabled = false },
@@ -92,12 +92,12 @@ return {
     },
     opts = {
       default = {
-        theme = "everforest", -- the default theme to use if no timeframes match
+        theme = "onigiri", -- the default theme to use if no timeframes match
         bg = "dark", -- the default background to use
       },
       timeframes = { -- the timeframes to use
         { theme = "rose-pine", start = "19:36", stop = "20:10" },
-        { theme = "everforest", start = "20:10", stop = "16:44" },
+        { theme = "kanagawa", start = "20:10", stop = "16:44" },
         { theme = "tokyonight", start = "16:45", stop = "19:35", bg = "dark" },
       },
     },
@@ -130,10 +130,10 @@ return {
   { import = "astrocommunity.media.pets-nvim", enabled = false },
   { import = "astrocommunity.media.presence-nvim", enabled = true },
   { import = "astrocommunity.media.vim-wakatime", enabled = true },
-  { import = "astrocommunity.scrolling.mini-animate", enabled = GUI() },
+  { import = "astrocommunity.scrolling.mini-animate", enabled = false },
   { import = "astrocommunity.scrolling.satellite-nvim", enabled = true },
   { import = "astrocommunity.color.tint-nvim", enabled = true },
-  { import = "astrocommunity.media.drop-nvim", enabled = GUI() },
+  { import = "astrocommunity.media.drop-nvim", enabled = false },
   { import = "astrocommunity.diagnostics.trouble-nvim", enabled = true },
   { import = "astrocommunity.test.neotest", enabled = false },
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim", enabled = true },
@@ -169,65 +169,65 @@ return {
   { import = "astrocommunity.motion.mini-surround", enabled = true },
   { import = "astrocommunity.motion.mini-bracketed", enabled = true },
   { import = "astrocommunity.motion.leap-nvim", enabled = true },
-  { import = "astrocommunity.utility.noice-nvim", enabled = GUI() },
-  {
-    "noice.nvim",
-    opts = {
-      messages = { enabled = true },
-      cmdline = {
-        format = {
-          filter = { pattern = "^:%s*!", icon = "$ ", ft = "sh" },
-          IncRename = {
-            pattern = "^:%s*IncRename%s+",
-            icon = " ",
-            conceal = true,
-          },
-        },
-      },
-      views = {
-        cmdline_popup = {
-          border = { style = "none", padding = { 1, 2 } },
-          win_options = {
-            winblend = 5,
-            winhighlight = {
-              Normal = "NormalFloat",
-              FloatBorder = "NoiceCmdlinePopupBorder",
-              IncSearch = "",
-              Search = "",
-            },
-            cursorline = false,
-          },
-        },
-      },
-      popupmenu = {
-        enabled = true,
-      },
-      routes = {
-        { view = "notify", filter = { event = "msg_showmode" } },
-        { filter = { event = "msg_show", find = "%d+L, %d+B" }, view = "mini" },
-        {
-          view = "cmdline_output",
-          filter = { cmdline = "^:", min_height = 5 },
-          -- BUG: will be fixed after https://github.com/neovim/neovim/issues/21044 gets merged
-        },
-        { filter = { event = "msg_show", kind = "search_count" }, opts = { skip = true } },
-        { filter = { event = "msg_show", find = "; before #" }, opts = { skip = true } },
-        { filter = { event = "msg_show", find = "; after #" }, opts = { skip = true } },
-        { filter = { event = "msg_show", find = " lines, " }, opts = { skip = true } },
-        { filter = { event = "msg_show", find = "go up one level" }, opts = { skip = true } },
-        { filter = { event = "msg_show", find = "yanked" }, opts = { skip = true } },
-        { filter = { find = "No active Snippet" }, opts = { skip = true } },
-        { filter = { find = "waiting for cargo metadata" }, opts = { skip = true } },
-      },
-      presets = {
-        inc_rename = true,
-        bottom_search = false,
-        command_palette = true,
-        long_message_to_split = true,
-        lsp_doc_border = "rounded",
-      },
-    },
-  },
+  { import = "astrocommunity.utility.noice-nvim", enabled = false },
+  -- {
+  --   "noice.nvim",
+  --   opts = {
+  --     messages = { enabled = true },
+  --     cmdline = {
+  --       format = {
+  --         filter = { pattern = "^:%s*!", icon = "$ ", ft = "sh" },
+  --         IncRename = {
+  --           pattern = "^:%s*IncRename%s+",
+  --           icon = " ",
+  --           conceal = true,
+  --         },
+  --       },
+  --     },
+  --     views = {
+  --       cmdline_popup = {
+  --         border = { style = "none", padding = { 1, 2 } },
+  --         win_options = {
+  --           winblend = 5,
+  --           winhighlight = {
+  --             Normal = "NormalFloat",
+  --             FloatBorder = "NoiceCmdlinePopupBorder",
+  --             IncSearch = "",
+  --             Search = "",
+  --           },
+  --           cursorline = false,
+  --         },
+  --       },
+  --     },
+  --     popupmenu = {
+  --       enabled = true,
+  --     },
+  --     routes = {
+  --       { view = "notify", filter = { event = "msg_showmode" } },
+  --       { filter = { event = "msg_show", find = "%d+L, %d+B" }, view = "mini" },
+  --       {
+  --         view = "cmdline_output",
+  --         filter = { cmdline = "^:", min_height = 5 },
+  --         -- BUG: will be fixed after https://github.com/neovim/neovim/issues/21044 gets merged
+  --       },
+  --       { filter = { event = "msg_show", kind = "search_count" }, opts = { skip = true } },
+  --       { filter = { event = "msg_show", find = "; before #" }, opts = { skip = true } },
+  --       { filter = { event = "msg_show", find = "; after #" }, opts = { skip = true } },
+  --       { filter = { event = "msg_show", find = " lines, " }, opts = { skip = true } },
+  --       { filter = { event = "msg_show", find = "go up one level" }, opts = { skip = true } },
+  --       { filter = { event = "msg_show", find = "yanked" }, opts = { skip = true } },
+  --       { filter = { find = "No active Snippet" }, opts = { skip = true } },
+  --       { filter = { find = "waiting for cargo metadata" }, opts = { skip = true } },
+  --     },
+  --     presets = {
+  --       inc_rename = true,
+  --       bottom_search = false,
+  --       command_palette = true,
+  --       long_message_to_split = true,
+  --       lsp_doc_border = "rounded",
+  --     },
+  --   },
+  -- },
   { import = "astrocommunity.editing-support.refactoring-nvim", enabled = false },
   { import = "astrocommunity.editing-support.zen-mode-nvim", enabled = true },
   { import = "astrocommunity.editing-support.dial-nvim", enabled = true },
