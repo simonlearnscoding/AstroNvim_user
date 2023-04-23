@@ -1,4 +1,3 @@
-function GUI() return vim.g.neovide and false or true end
 return {
   -- { "luxus/astroluxus", dev = true }, -- loading my plugins
   { "AstroNvim/astrocommunity" }, -- loading community plugins
@@ -56,7 +55,7 @@ return {
   },
   { import = "astrocommunity.colorscheme.everforest", enabled = true },
   { import = "astrocommunity.colorscheme.gruvbox", enabled = true },
-  { import = "astrocommunity.colorscheme.nightfox", enabled = false },
+  { import = "astrocommunity.colorscheme.nightfox", enabled = true },
   { import = "astrocommunity.colorscheme.kanagawa", enabled = true },
   { import = "astrocommunity.colorscheme.oxocarbon", enabled = false },
   { import = "astrocommunity.colorscheme.rose-pine", enabled = true },
@@ -92,13 +91,14 @@ return {
     },
     opts = {
       default = {
-        theme = "onigiri", -- the default theme to use if no timeframes match
+        theme = "tokyonight", -- the default theme to use if no timeframes match
         bg = "dark", -- the default background to use
       },
       timeframes = { -- the timeframes to use
         { theme = "rose-pine", start = "19:36", stop = "20:10" },
-        { theme = "kanagawa", start = "20:10", stop = "16:44" },
+        -- { theme = "kanagawa", start = "20:10", stop = "16:44" },
         { theme = "tokyonight", start = "16:45", stop = "19:35", bg = "dark" },
+        { theme = "onigiri", start = "22:22", stop = "23:30", bg = "dark" },
       },
     },
   },
@@ -139,9 +139,7 @@ return {
   -- { import = "astrocommunity.diagnostics.lsp_lines-nvim", enabled = true },
   -- {
   --   "lsp_lines.nvim",
-  --   --FIXME: virtual_text didn't work here.. it gets reanabled somewhere else
-  --   init = function() vim.diagnostic.config { virtual_lines = false } end,
-  --   keys = { { "<leader>v", "<cmd>lua require('lsp_lines').toggle()<CR>", desc = "Toggle LSP Lines" } },
+  --   --FIXME: virtual_text didn''lsp_lines').toggle()<CR>", desc = "Toggle LSP Lines" } },
   -- },
   { import = "astrocommunity.project.neoconf-nvim", enabled = true },
   { import = "astrocommunity.project.nvim-spectre", enabled = true },
