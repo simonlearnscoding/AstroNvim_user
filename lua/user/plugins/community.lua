@@ -95,9 +95,9 @@ return {
         bg = "dark", -- the default background to use
       },
       timeframes = { -- the timeframes to use
-        { theme = "rose-pine", start = "19:36", stop = "20:10" },
+        { theme = "rose-pine", start = "19:36", stop = "22:10" },
         -- { theme = "kanagawa", start = "20:10", stop = "16:44" },
-        { theme = "tokyonight", start = "16:45", stop = "19:35", bg = "dark" },
+        -- { theme = "tokyonight", start = "16:45", stop = "19:35", bg = "dark" },
         { theme = "onigiri", start = "22:22", stop = "23:30", bg = "dark" },
       },
     },
@@ -129,10 +129,10 @@ return {
 
   { import = "astrocommunity.media.pets-nvim", enabled = false },
   { import = "astrocommunity.media.presence-nvim", enabled = true },
-  { import = "astrocommunity.media.vim-wakatime", enabled = true },
+  { import = "astrocommunity.media.vim-lakatime", enabled = false },
   { import = "astrocommunity.scrolling.mini-animate", enabled = false },
   { import = "astrocommunity.scrolling.satellite-nvim", enabled = true },
-  { import = "astrocommunity.color.tint-nvim", enabled = true },
+  { import = "astrocommunity.color.tint-nvim", enabled = false },
   { import = "astrocommunity.media.drop-nvim", enabled = false },
   { import = "astrocommunity.diagnostics.trouble-nvim", enabled = true },
   { import = "astrocommunity.test.neotest", enabled = false },
