@@ -91,7 +91,7 @@ return {
     },
     opts = {
       default = {
-        theme = "tokyonight", -- the default theme to use if no timeframes match
+        theme = "everforest", -- the default theme to use if no timeframes match
         bg = "dark", -- the default background to use
       },
       timeframes = { -- the timeframes to use

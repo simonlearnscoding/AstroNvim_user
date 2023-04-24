@@ -5,6 +5,7 @@ return {
   options = {
     opt = {
       -- clipboard = "", -- Remove connection to the system clipboard
+      clipboard = "unnamedplus",
       timeoutlen = 250,
       backup = false, -- Don't store backup while overwriting the file
       ruler = false, -- Don't show cursor position in command line
@@ -24,7 +25,7 @@ return {
   updater = { channel = "nightly" },
   mappings = {
     n = {
-      ["<leader>o"] = false, -- focus neo-tree
+      -- ["<leader>o"] = , -- focus neo-tree
       ["q:"] = ":",
 
       ["<leader>n"] = { "<cmd>enew<cr>", desc = "New File" },
