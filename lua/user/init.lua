@@ -1,5 +1,30 @@
 local tabpre = "<leader><tab>"
 return {
+
+  lsp = {
+    servers = {
+      "logseq_lsp",
+    },
+    config = {
+      logseq_lsp = function()
+        return {
+          cmd = { "logseqlsp", "-p", "{lsp-port}", "-t", "{my-token}", "--log-file", "{~/projects/vault/pages}" },
+          name = "markdown",
+          url = "https://github.com/WhiskeyJack96/logseqlsp/",
+          scope = "source.md",
+          -- injection-regex = "md|markdown",
+          filetypes = {
+            "md",
+            "markdown",
+          },
+          root_dir = require("lspconfig.util").root_pattern("README.md", ".git"),
+        }
+        -- local lspconfig = require('lspconfig')
+        -- lspconfig.logseq.setup(logseq)
+      end,
+    },
+  },
+
   heirline = { separators = { breadcrumbs = "  ", path = "/" } },
   colorscheme = false,
   options = {
