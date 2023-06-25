@@ -1,0 +1,18 @@
+2023-06-12 20:21:40 - Neovide panicked with the message 'Focus Gained Failed: NeovimError(Some(0), "FocusGained Autocommands for \"*\": Vim(checktime):E11: Invalid in command-line window; <CR> executes, CTRL-C quits: checktime")'. (File: src/bridge/ui_commands.rs; Line: 147, Column: 18)
+   0: <unknown>
+   1: <unknown>
+   2: <unknown>
+   3: <unknown>
+   4: <unknown>
+   5: <unknown>
+   6: <unknown>
+   7: <unknown>
+   8: <unknown>
+   9: <unknown>
+  10: <unknown>
+  11: <unknown>
+  12: <unknown>
+  13: <unknown>
+  14: <unknown>
+  15: <unknown>
+

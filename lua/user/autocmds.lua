@@ -8,11 +8,13 @@ vim.api.nvim_create_autocmd("User", {
     if new_showtabline ~= vim.opt.showtabline:get() then vim.opt.showtabline = new_showtabline end
   end,
 })
+vim.cmd [[au FocusGained,BufEnter * checktime]]
 -- load parameters for neovide
 if vim.g.neovide then
   vim.g.neovide_transparency = 0.85
   vim.g.neovide_input_macos_alt_is_meta = true
-  vim.cmd [[set guifont=MonoLisa,Symbols\ Nerd\ Font]]
+  vim.o.guifont = "FiraMono Nerd Font Mono:h11"
+  -- vim.cmd [[set guifont=MonoLisa:10,Symbols\ Nerd\ Font:h10]]
   vim.g.neovide_cursor_vfx_mode = "railgun"
   vim.g.transparency = 0.85
 end

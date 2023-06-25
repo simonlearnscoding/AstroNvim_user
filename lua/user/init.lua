@@ -1,29 +1,68 @@
 local tabpre = "<leader><tab>"
-return {
 
-  lsp = {
-    servers = {
-      "logseq_lsp",
+return {
+  dap = {
+    adapters = {
+      python = {
+        type = "executable",
+        command = "/home/simon/.virtualenvs/debugpy/bin/python3",
+        args = { "-m", "debugpy.adapter" },
+      },
     },
-    config = {
-      logseq_lsp = function()
-        return {
-          cmd = { "logseqlsp", "-p", "{lsp-port}", "-t", "{my-token}", "--log-file", "{~/projects/vault/pages}" },
-          name = "markdown",
-          url = "https://github.com/WhiskeyJack96/logseqlsp/",
-          scope = "source.md",
-          -- injection-regex = "md|markdown",
-          filetypes = {
-            "md",
-            "markdown",
-          },
-          root_dir = require("lspconfig.util").root_pattern("README.md", ".git"),
-        }
-        -- local lspconfig = require('lspconfig')
-        -- lspconfig.logseq.setup(logseq)
-      end,
+    configurations = {
+      python = {
+        {
+          -- The first three options are required by nvim-dap
+          type = "python", -- the type here established the link to the adapter definition: `dap.adapters.python`
+          request = "launch",
+          name = "Launch file",
+          justMyCode = false,
+          -- Options below are for debugpy, see https://github.com/microsoft/debugpy/wiki/Debug-configuration-settings for supported options
+
+          program = "/home/simon/code/discord/spqr--bot/Restart/main.py", -- This configuration will launch the current file if used.
+          pythonPath = function()
+            -- debugpy supports launching an application with a different interpreter then the one used to launch debugpy itself.
+            -- The code below looks for a `venv` or `.venv` folder in the current directly and uses the python within.
+            -- You could adapt this - to for example use the `VIRTUAL_ENV` environment variable.
+            -- local cwd = vim.fn.getcwd()
+            local cwd = "/home/simon/code/discord/spqr--bot/Restart"
+            if vim.fn.executable(cwd .. "/venv/bin/python3") == 1 then
+              vim.print "Found local venv"
+              return cwd .. "/venv/bin/python3"
+            elseif vim.fn.executable(cwd .. "/.venv/bin/python3") == 1 then
+              return cwd .. "/.venv/bin/python3"
+            else
+              vim.print "using global python"
+              return "/usr/bin/python3"
+            end
+          end,
+        },
+      },
     },
   },
+  -- lsp = {
+  --   servers = {
+  --     "logseq_lsp",
+  --   },
+  --   config = {
+  --     logseq_lsp = function()
+  --       return {
+  --         cmd = { "logseqlsp", "-p", "{lsp-port}", "-t", "{my-token}", "--log-file", "{~/projects/vault/pages}" },
+  --         name = "markdown",
+  --         url = "https://github.com/WhiskeyJack96/logseqlsp/",
+  --         scope = "source.md",
+  --         -- injection-regex = "md|markdown",
+  --         filetypes = {
+  --           "md",
+  --           "markdown",
+  --         },
+  --         root_dir = require("lspconfig.util").root_pattern("README.md", ".git"),
+  --       }
+  --       -- local lspconfig = require('lspconfig')
+  --       -- lspconfig.logseq.setup(logseq)
+  --     end,
+  --   },
+  -- },
 
   heirline = { separators = { breadcrumbs = "  ", path = "/" } },
   colorscheme = false,
@@ -32,6 +71,7 @@ return {
       -- clipboard = "", -- Remove connection to the system clipboard
       clipboard = "unnamedplus",
       timeoutlen = 250,
+      termguicolors = true,
       backup = false, -- Don't store backup while overwriting the file
       ruler = false, -- Don't show cursor position in command line
       incsearch = true, -- Show search results while typing
